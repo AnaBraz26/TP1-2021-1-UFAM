@@ -1,0 +1,40 @@
+*
+ *         Point comida = jogo.getComida();
+        int posy, posx, posx_c,posy_c;
+        
+        // Para saber a distancia entre a cabeca e a comida em relação (x,y)
+        posx = comida.x - cabeca.x;
+        posy = comida.y - cabeca.y;      
+ System.out.printf("%d, %d, %c // cauda - cabeca %d, %d\n", posx, posy, jogo.getDirecaoAtual(), posx_c,posy_c);  
+if(posy > 0)
+        {  
+        	if(jogo.isCelulaLivre(cabeca.x, cabeca.y+1)) return 'B'; 
+        	if(jogo.isCelulaLivre(cabeca.x-1, cabeca.y)) return 'E';    
+        	if(jogo.isCelulaLivre(cabeca.x+1, cabeca.y)) return 'D';      	
+        	if(jogo.isCelulaLivre(cabeca.x, cabeca.y-1)) return 'C'; 
+        }
+        else if(posy < 0)
+        {
+        	if(jogo.isCelulaLivre(cabeca.x, cabeca.y-1)) return 'C';   
+        	if(jogo.isCelulaLivre(cabeca.x-1, cabeca.y)) return 'E';       	
+        	if(jogo.isCelulaLivre(cabeca.x+1, cabeca.y)) return 'D'; 
+        	if(jogo.isCelulaLivre(cabeca.x, cabeca.y+1)) return 'B';        	
+        }
+        if(posx > 0 && posy == 0)
+        {
+        	if(jogo.isCelulaLivre(cabeca.x+1, cabeca.y)) return 'D';  
+        	if(jogo.isCelulaLivre(cabeca.x, cabeca.y+1)) return 'B';  
+        	if(jogo.isCelulaLivre(cabeca.x, cabeca.y-1)) return 'C';  
+        	if(jogo.isCelulaLivre(cabeca.x-1, cabeca.y)) return 'E'; 
+        }
+        else if(posx < 0 && posy == 0)
+        {
+        	if(jogo.isCelulaLivre(cabeca.x-1, cabeca.y)) return 'E';
+        	if(jogo.isCelulaLivre(cabeca.x, cabeca.y+1)) return 'B'; 
+        	if(jogo.isCelulaLivre(cabeca.x, cabeca.y-1)) return 'C';      	
+        	if(jogo.isCelulaLivre(cabeca.x+1, cabeca.y)) return 'D';        	 
+        }   
+        
+        
+        return 'N';
+ * */
